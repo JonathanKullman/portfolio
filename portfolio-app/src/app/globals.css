@@ -75,3 +75,16 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #13111c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#2d035e, #7d1aff);
+}
+
+

@@ -21,21 +21,22 @@ const Hero = (props: Props) => {
         <div className="flex flex-col items-center justify-center h-[40rem] z-10 text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold">
           <div className="py-3">
           <motion.div variants={textVariant(0.0)}>
-            <h1 className="py-2 text-7xl">
-              Hi<span className="text-purple-600">, </span>
-              <span className="text-6xl">
+            <div className="py-2 text-7xl">
+              <span className="font-mono">Hi</span>
+             <span className="text-purple-600 tracking-[0.01rem]">, </span>
+              <span className="text-6xl tracking-tighter font-mono">
                 I'm <br />
               </span>
-              <span className="text-purple-600 text-8xl">Jonathan</span>
-            </h1>
+              <span className="text-purple-600 text-8xl font-mono">Jonathan</span>
+            </div>
             </motion.div>
           </div>
 
-          <div className="flex ">
+          <div className="flex font-mono">
             <motion.div variants={textVariant(0.7)} className="">
               Junior
               <TypeAnimation
-                className="text-purple-600"
+                className="text-purple-600 font-mono"
                 sequence={[
                   // Same substring at the start will only be typed out once, initially
                   " Fullstack",
@@ -49,14 +50,14 @@ const Hero = (props: Props) => {
                 speed={20}
                 repeat={Infinity}
               />
-              Developer<span className="text-purple-600">.</span>
+              Developer<span className="text-purple-600 font-mono">.</span>
             </motion.div>
           </div>
 
           <div className="flex flex-col md:flex-row space-x-4 mt-14">
           <motion.div variants={textVariant(0.4)} className="">
-            <button className="w-40 h-10 rounded-xl bg-black border dark:border-white text-white text-sm z-10 transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
-              Contact
+            <button className="w-40 h-10 rounded-xl font-mono bg-purple-600 border dark:border-black text-white text-sm z-10 transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
+              CONTACT_ME
             </button>
             </motion.div>
             <a
@@ -66,8 +67,8 @@ const Hero = (props: Props) => {
             >
             <motion.div variants={textVariant(0.6)} className="">
 
-              <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
-                Download CV
+              <button className="w-40 h-10 rounded-xl font-mono bg-white text-black border border-black text-sm transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
+                DOWNLOAD_CV.pdf
               </button>
             </motion.div>
 
