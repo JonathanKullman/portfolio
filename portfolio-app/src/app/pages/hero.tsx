@@ -1,47 +1,84 @@
-'use client'
+"use client";
 import React from "react";
 import { BackgroundBeams } from "../components/ui/background-beams";
-import { TypewriterEffect, TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
+import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { slideIn, staggerContainer, textVariant } from "../../lib/motion";
 
-type Props = {}
-
-  const words = [
-    {
-      text: "I'm",
-    },
-    {
-      text: "Jonathan",
-    },
-    {
-      text: "ab",
-    },
-    {
-      text: "Junior Developer.",
-      className: "text-purple-500 dark:text-purple-500",
-    },
-  ];
-
+type Props = {};
 
 const Hero = (props: Props) => {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center h-[40rem] z-10 ">
-    <p className="text-neutral-600 dark:text-neutral-200 text-base  mb-10">
-      The road to freedom starts from here
-    </p>
-    <TypewriterEffectSmooth words={words} />
-    <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-10">
-      <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
-        Join now
-      </button>
-      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">
-        Signup
-      </button>
-    </div>
-  </div>       
-        <BackgroundBeams />
-    </div>
-  )
-}
+      <motion.div
+        //@ts-ignore
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+        className="w-[1000px]"
+      >
+        <div className="flex flex-col items-center justify-center h-[40rem] z-10 text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold">
+          <div className="py-3">
+          <motion.div variants={textVariant(0.0)}>
+            <h1 className="py-2 text-7xl">
+              Hi<span className="text-purple-600">, </span>
+              <span className="text-6xl">
+                I'm <br />
+              </span>
+              <span className="text-purple-600 text-8xl">Jonathan</span>
+            </h1>
+            </motion.div>
+          </div>
 
-export default Hero
+          <div className="flex ">
+            <motion.div variants={textVariant(0.7)} className="">
+              Junior
+              <TypeAnimation
+                className="text-purple-600"
+                sequence={[
+                  // Same substring at the start will only be typed out once, initially
+                  " Fullstack",
+                  2500, // wait 1s before replacing "Mice" with "Hamsters"
+                  " Frontend",
+                  2500,
+                  " Backend",
+                  2500,
+                ]}
+                wrapper="span"
+                speed={20}
+                repeat={Infinity}
+              />
+              Developer<span className="text-purple-600">.</span>
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col md:flex-row space-x-4 mt-14">
+          <motion.div variants={textVariant(0.4)} className="">
+            <button className="w-40 h-10 rounded-xl bg-black border dark:border-white text-white text-sm z-10 transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
+              Contact
+            </button>
+            </motion.div>
+            <a
+              href="https://drive.usercontent.google.com/u/0/uc?id=1OfzESTG0ej1t51EPl1ViXYHKzKt12L1K&export=download"
+              target="_blank"
+              className="z-10 flex"
+            >
+            <motion.div variants={textVariant(0.6)} className="">
+
+              <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
+                Download CV
+              </button>
+            </motion.div>
+
+            </a>
+          </div>
+        </div>
+      </motion.div>
+      <BackgroundBeams />
+
+    </div>
+  );
+};
+
+export default Hero;

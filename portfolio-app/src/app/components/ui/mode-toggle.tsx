@@ -10,19 +10,23 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { motion } from "framer-motion";
+import { fadeIn, } from "../../../lib/motion";
 
 
 export function ModeToggle() {
   const { setTheme } = useTheme()
   return (
+   
     
     <DropdownMenu>
+       <motion.div
+        //@ts-ignore
+        variants={fadeIn('', 'tween', 0.6, 1.0)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+      >
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
@@ -41,6 +45,7 @@ export function ModeToggle() {
           Dark
         </DropdownMenuItem>     
       </DropdownMenuContent>
+      </motion.div>
     </DropdownMenu>
   )
 }

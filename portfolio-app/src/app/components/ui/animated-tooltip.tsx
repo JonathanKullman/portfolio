@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import { fadeIn } from "../../../lib/motion";
 
 export const AnimatedTooltip = ({
   items,
@@ -66,26 +67,33 @@ export const AnimatedTooltip = ({
                 rotate: rotate,
                 whiteSpace: "nowrap",
               }}
-              className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center bg-black z-50 shadow-xl px-4 py-2"
+              className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center bg-black dark:bg-white  z-50 shadow-xl px-4 py-2"
             >
               <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
               <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
-              <div className="font-bold text-white relative z-30 text-base">
+              <div className="font-bold text-white dark:text-black relative z-30 text-base">
                 {item.name}
               </div>
               <div className="text-white text-xs">{item.designation}</div>
             </motion.div>
           )}
           <a href={item.link} target="_blank">
-
-          <Image
-            onMouseMove={handleMouseMove}
-            height={30}
-            width={30}
-            src={item.image}
-            alt={item.name}
-            className="invert opacity-95 hover:opacity-80 group-hover:scale-105 relative border-none transition duration-400 dark:invert-0"
-          />
+            <motion.div
+              //@ts-ignore
+              variants={fadeIn("", "tween", 0.6, 1.0)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.25 }}
+            >
+              <Image
+                onMouseMove={handleMouseMove}
+                height={30}
+                width={30}
+                src={item.image}
+                alt={item.name}
+                className="invert opacity-95 hover:opacity-80 group-hover:scale-105 relative border-none transition duration-300 dark:invert-0"
+              />
+            </motion.div>
           </a>
         </div>
       ))}
