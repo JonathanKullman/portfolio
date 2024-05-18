@@ -9,7 +9,6 @@
 }
 
 *::-webkit-scrollbar {
-  display: none !important;
 }
 .bg-radial-gradient {
   background-image: radial-gradient(
@@ -17,6 +16,9 @@
     rgba(4, 159, 108, 1) 0%,
     rgba(194, 254, 113, 1) 90.1%
   );
+}
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {

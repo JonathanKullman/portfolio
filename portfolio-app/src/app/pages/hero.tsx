@@ -3,7 +3,7 @@ import React from "react";
 import { BackgroundBeams } from "../components/ui/background-beams";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import { slideIn, staggerContainer, textVariant } from "../../lib/motion";
+import { staggerContainer, textVariant } from "../../lib/motion";
 
 type Props = {};
 
@@ -56,9 +56,11 @@ const Hero = (props: Props) => {
 
           <div className="flex flex-col md:flex-row space-x-4 mt-14">
           <motion.div variants={textVariant(0.4)} className="">
+            <a href="#contact" className="relative z-20">
             <button className="w-40 h-10 rounded-xl font-mono bg-purple-600 border dark:border-black text-white text-sm z-10 transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
-              CONTACT_ME
+              Get_in_touch
             </button>
+            </a>
             </motion.div>
             <a
               href="https://drive.usercontent.google.com/u/0/uc?id=1OfzESTG0ej1t51EPl1ViXYHKzKt12L1K&export=download"
@@ -68,7 +70,7 @@ const Hero = (props: Props) => {
             <motion.div variants={textVariant(0.6)} className="">
 
               <button className="w-40 h-10 rounded-xl font-mono bg-white text-black border border-black text-sm transition duration-200 ease-linear hover:shadow-[0_6px_20px_rgba(93,93,93,23%)]">
-                DOWNLOAD_CV.pdf
+                Download_CV.pdf
               </button>
             </motion.div>
 
