@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { TracingBeam } from "../components/ui/tracing-beam";
 import vercel from "../../../public/vercel.svg";
 import { motion } from "framer-motion";
-import { slideIn, staggerContainer, fadeIn, textVariant, textVariant2 } from "../../lib/motion";
+import { staggerContainer, fadeIn } from "../../lib/motion";
 
 type Props = {};
 
@@ -14,14 +13,14 @@ const dummyContent = [
     description: (
       <>
         <p className="font-mono">
-          I've initiated a freelance project with two friends where our goal is
+          I&apos;ve initiated a freelance project with two friends where our goal is
           to create modern, responsive, and SEO-friendly websites for small
           businesses using the latest technologies such as Next.js and Tailwind
-          CSS in React. It's done under the name "Quicksleek".
+          CSS in React. It&apos;s done under the name &quot;Quicksleek&quot;.
         </p>
         <p className="pt-2 font-mono">
-          Within the Projects section, you'll discover details
-          including links for every website we've successfully
+          Within the Projects section, you&apos;ll discover details
+          including links for every website we&apos;ve successfully
           completed to date.
         </p>
       </>
@@ -119,7 +118,7 @@ const Experience = (props: Props) => {
                   )}
                 </div>
 
-                <div className="text-sm  prose prose-sm dark:prose-invert">
+                <div className="text-sm prose prose-sm dark:prose-invert">
                   {/* {item?.image && (
                   <Image
                     src={item.image}
@@ -134,18 +133,18 @@ const Experience = (props: Props) => {
                   </motion.div>
                 </div>
                 <div className="flex">
-                {item.frameworks &&
-                  item.frameworks.map((framework, index) => (
-                    <div
-                      key={index}
-                      className=" bg-black dark:bg-white bg-opacity-70 mt-3 mr-2 text-white dark:text-black rounded-[8px] font-mono text-sm w-fit px-2 py-0"
-                    >
-                      {framework.split(",").map((item, subIndex) => (
-                        <span key={subIndex}>{item.trim()}</span>
-                      ))}
-                    </div>
-                  ))}
-              </div>
+                  {item.frameworks &&
+                    item.frameworks.map((framework, index) => (
+                      <div
+                        key={index}
+                        className="bg-black dark:bg-white bg-opacity-70 mt-3 mr-2 text-white dark:text-black rounded-[8px] font-mono text-sm w-fit px-2 py-0"
+                      >
+                        {framework.split(",").map((item, subIndex) => (
+                          <span key={subIndex}>{item.trim()}</span>
+                        ))}
+                      </div>
+                    ))}
+                </div>
               </div>
             ))}
           </div>

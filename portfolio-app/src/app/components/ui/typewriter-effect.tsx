@@ -26,6 +26,7 @@ export const TypewriterEffect = ({
 
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
+
   useEffect(() => {
     if (isInView) {
       animate(
@@ -42,7 +43,7 @@ export const TypewriterEffect = ({
         }
       );
     }
-  }, [isInView]);
+  }, [isInView, animate]); // Added 'animate' to the dependency array
 
   const renderWords = () => {
     return (
@@ -69,6 +70,7 @@ export const TypewriterEffect = ({
       </motion.div>
     );
   };
+
   return (
     <div
       className={cn(
@@ -117,13 +119,13 @@ export const TypewriterEffectSmooth = ({
       text: word.text.split(""),
     };
   });
+
   const renderWords = () => {
     return (
-        
       <div>
         {wordsArray.map((word, idx) => {
-            const isBreak = word.text.join("") === "ab"; // Check if the word is "bob"
-            console.log(isBreak)
+          const isBreak = word.text.join("") === "ab"; // Check if the word is "ab"
+          console.log(isBreak);
           return (
             <div key={`word-${idx}`} className="inline-block">
               {word.text.map((char, index) => (
@@ -132,12 +134,10 @@ export const TypewriterEffectSmooth = ({
                   className={cn(`dark:text-white text-black `, word.className)}
                 >
                   {char}
-                                
                 </span>
               ))}
-              &nbsp;   
+              &nbsp;
               {isBreak && <br />}
-              
             </div>
           );
         })}
@@ -184,7 +184,7 @@ export const TypewriterEffectSmooth = ({
           repeatType: "reverse",
         }}
         className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-purple-600",
+          "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-12 bg-purple-600",
           cursorClassName
         )}
       ></motion.span>

@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "../components/ui/lamp";
 import { HoverEffect } from "../components/ui/card-hover-effect";
-import { fadeIn, slideIn, staggerContainer, textVariant } from "../../lib/motion";
 
 type Props = {};
 

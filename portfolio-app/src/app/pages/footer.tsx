@@ -5,9 +5,7 @@ import { AnimatedTooltip } from "../components/ui/animated-tooltip";
 import { motion } from "framer-motion";
 import {
   fadeIn,
-  slideIn,
   staggerContainer,
-  textVariant,
 } from "../../lib/motion";
 
 type Props = {}
