@@ -19,6 +19,12 @@ export const navVariants = {
   },
 };
 
+/**
+ * @param {'left' | 'right' | 'up' | 'down'} direction
+ * @param {'tween' | 'spring' | 'linear' | 'easeIn' | 'easeOut'} type
+ * @param {number} delay
+ * @param {number} duration
+ */
 export const slideIn = (direction, type, delay, duration) => ({
   hidden: {
     x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
@@ -36,6 +42,10 @@ export const slideIn = (direction, type, delay, duration) => ({
   },
 });
 
+/**
+ * @param {number} staggerChildren
+ * @param {number} delayChildren
+ */
 export const staggerContainer = (staggerChildren, delayChildren) => ({
   hidden: {},
   show: {
@@ -46,6 +56,9 @@ export const staggerContainer = (staggerChildren, delayChildren) => ({
   },
 });
 
+/**
+ * @param {number} delay
+ */
 export const textVariant = (delay) => ({
   hidden: {
     y: 50,
@@ -66,6 +79,9 @@ export const textContainer = {
   hidden: {
     opacity: 0,
   },
+  /**
+   * @param {number} [i=1]
+   */
   show: (i = 1) => ({
     opacity: 1,
     transition: { staggerChildren: 0.1, delayChildren: i * 0.1 },
@@ -87,6 +103,12 @@ export const textVariant2 = {
   },
 };
 
+/**
+ * @param {'left' | 'right' | 'up' | 'down'} direction
+ * @param {'tween' | 'spring' | 'linear' | 'easeIn' | 'easeOut'} type
+ * @param {number} delay
+ * @param {number} duration
+ */
 export const fadeIn = (direction, type, delay, duration) => ({
   hidden: {
     x: direction === 'left' ? 20 : direction === 'right' ? -20 : 0,
@@ -106,6 +128,9 @@ export const fadeIn = (direction, type, delay, duration) => ({
   },
 });
 
+/**
+ * @param {'left' | 'right'} direction
+ */
 export const planetVariants = (direction) => ({
   hidden: {
     x: direction === 'left' ? '-100%' : '100%',
@@ -122,6 +147,10 @@ export const planetVariants = (direction) => ({
   },
 });
 
+/**
+ * @param {number} delay
+ * @param {number} duration
+ */
 export const zoomIn = (delay, duration) => ({
   hidden: {
     scale: 0,

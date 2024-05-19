@@ -1,7 +1,13 @@
 'use client'
 import { cn } from "../../lib/utils/cn";
-import clsx from "clsx";
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+interface MeteorStyle {
+  top: number;
+  left: string;
+  animationDelay: string;
+  animationDuration: string;
+}
 
 export const Meteors = ({
   number,
@@ -11,6 +17,19 @@ export const Meteors = ({
   className?: string;
 }) => {
   const meteors = new Array(number || 20).fill(true);
+
+  const [styles, setStyles] = useState<MeteorStyle[]>([]);
+
+  useEffect(() => {
+    const newStyles = meteors.map(() => ({
+      top: 0,
+      left: Math.floor(Math.random() * (400 - -400) + -400) + "px",
+      animationDelay: (Math.random() * (0.8 - 0.2) + 0.2).toFixed(3) + "s",
+      animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + "s",
+    }));
+    setStyles(newStyles);
+  }, [number]);
+
   return (
     <>
       {meteors.map((el, idx) => (
@@ -21,12 +40,7 @@ export const Meteors = ({
             "before:content-[''] before:absolute before:top-1/2 before:transform before:-translate-y-[50%] before:w-[50px] before:h-[1px] before:bg-gradient-to-r before:from-[#a5abff] before:to-transparent",
             className
           )}
-          style={{
-            top: 0,
-            left: Math.floor(Math.random() * (400 - -400) + -400) + "px",
-            animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + "s",
-            animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + "s",
-          }}
+          style={styles[idx] || {}}
         ></span>
       ))}
     </>
