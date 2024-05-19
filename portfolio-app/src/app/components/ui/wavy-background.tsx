@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "../../lib/utils/cn";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 
 export const WavyBackground = ({
@@ -48,21 +48,6 @@ export const WavyBackground = ({
     }
   };
 
-  const init = () => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
-      ctx.filter = `blur(${blur}px)`;
-    };
-    render();
-  };
-
   const waveColors = colors ?? [
     "#38bdf8",
     "#818cf8",
@@ -70,6 +55,7 @@ export const WavyBackground = ({
     "#e879f9",
     "#22d3ee",
   ];
+
   const drawWave = (n: number) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -85,20 +71,35 @@ export const WavyBackground = ({
     }
   };
 
-  const render = () => {
+  const render = useCallback(() => {
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(5);
     animationIdRef.current = requestAnimationFrame(render);
-  };
+  }, [backgroundFill, waveOpacity, waveWidth, waveColors]);
+
+  const init = useCallback(() => {
+    canvas = canvasRef.current;
+    ctx = canvas.getContext("2d");
+    w = ctx.canvas.width = window.innerWidth;
+    h = ctx.canvas.height = window.innerHeight;
+    ctx.filter = `blur(${blur}px)`;
+    nt = 0;
+    window.onresize = function () {
+      w = ctx.canvas.width = window.innerWidth;
+      h = ctx.canvas.height = window.innerHeight;
+      ctx.filter = `blur(${blur}px)`;
+    };
+    render();
+  }, [blur, render]);
 
   useEffect(() => {
     init();
     return () => {
       cancelAnimationFrame(animationIdRef.current);
     };
-  }, [init]); // Removed 'animationId' from the dependency array
+  }, [init]);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
