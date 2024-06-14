@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
@@ -7,12 +7,13 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import CopyEmailButton from '../components/ui/copy-email-button';
 import {
   fadeIn,
   staggerContainer,
 } from "../../lib/motion";
 
-// import toast, { Toaster } from 'react-hot-toast';
+
 
 type Props = {};
 
@@ -80,7 +81,7 @@ const Contact = (props: Props) => {
               </motion.div>
               <motion.div variants={fadeIn("up", "spring", 0.6, 1)}>
                 <p className="text-neutral-500 max-w-lg mx-auto my-2 font-mono text-sm text-center relative z-10 pt-6">
-                  Your message is important to me. Use this form to reach out about anything such as job offers, projects, ideas, or just to say hi. Can&apos;t wait to hear from you!
+                  Your message is important to me. Use this form or copy my email address below to reach out about anything such as job offers, projects, ideas, or just to say hi. Can&apos;t wait to hear from you!
                 </p>
               </motion.div>
               <motion.div variants={fadeIn("up", "spring", 0.8, 1)}>
@@ -112,15 +113,31 @@ const Contact = (props: Props) => {
                       className="z-[100] relative resize-none font-mono"
                     />
                   </motion.div>
-                  <motion.div variants={fadeIn("down", "spring", 1.4, 1)}>
-                    <Button
+                 
+                </div>
+                <motion.div variants={fadeIn("down", "spring", 1.4, 1)}>
+
+                <div className="flex flex-row py-6 justify-between">
+                  <div className=" ">
+                  <Button
                       type="submit"
-                      className="z-[100] relative rounded-sm font-mono text-white bg-purple-800"
+                      className="z-[100] relative rounded-sm font-mono text-white bg-purple-800 dark:hover:text-black dark:hover:bg-white"
                     >
                       Send message
-                    </Button>
-                  </motion.div>
+                    </Button>                       
+                  </div>
+                  
+                    
+                  <div className="">
+                    
+                <CopyEmailButton />
                 </div>
+
+                </div>
+                </motion.div>
+
+                
+
               </form>
             </div>
             <Toaster />

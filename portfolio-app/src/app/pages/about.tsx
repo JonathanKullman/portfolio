@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from "react";
 import { MacbookScroll } from "../components/ui/macbook-scroll";
 import Link from "next/link";

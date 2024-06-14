@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <>
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} >
       <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -33,15 +34,7 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
-          <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.addEventListener('DOMContentLoaded', function() {
-                document.body.removeAttribute('cz-shortcut-listen');
-              });
-            `,
-          }}
-        />
+          
           </body>
     </html>
     </>

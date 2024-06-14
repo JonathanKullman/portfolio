@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import socialLinks from "../lib/constants";
 import { ModeToggle } from "../components/ui/mode-toggle";

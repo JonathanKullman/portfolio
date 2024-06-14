@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { cn } from "../../lib/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";

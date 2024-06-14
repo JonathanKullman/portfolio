@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React from "react";
 import { TracingBeam } from "../components/ui/tracing-beam";
 import vercel from "../../../public/vercel.svg";

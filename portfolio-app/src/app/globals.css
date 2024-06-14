@@ -2,21 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+} */
 
-*::-webkit-scrollbar {
-}
-.bg-radial-gradient {
-  background-image: radial-gradient(
-    circle at 10% 20%,
-    rgba(4, 159, 108, 1) 0%,
-    rgba(194, 254, 113, 1) 90.1%
-  );
-}
 html {
   scroll-behavior: smooth;
 }

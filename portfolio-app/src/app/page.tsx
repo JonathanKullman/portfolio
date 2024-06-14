@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Hero from "./pages/hero"
 import About from "./pages/about"
 import Navbar from "./components/global/navbar";
